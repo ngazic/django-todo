@@ -1,0 +1,32 @@
+{% extends 'todo/base/base.html' %} {% load static %} {% block title %} Details {% endblock %} {% block site_css %}
+<link rel="stylesheet" href="{%static 'todo/styles/todo-details.css' %}"> {% endblock %} {% block body %}
+<article>
+    <h1>This is todo details page!</h1>
+    <p>You are viewing the details for the detail name {{ todo }} </p>
+    <hr>
+    <h1>{{ todo.name }} list:</h1>
+    <form action="{% url 'todo:edit' todo.id %}" method="post">
+        {% csrf_token %}
+        <ol class="details-list">
+            {% for product in todo.product_set.all %} {% if not product.done %}
+            <li class="details-list-item">
+                <div class="details-list-container">
+                    <label for="done{{product.id}}">
+                        <h5>
+                            {{ forloop.counter }}.{{ product.title }} ID: {{ product.id }}
+                        </h5>
+                        <p>
+                            {{ product.quantity }} x {{ product.price }} = {{ product.total_cost }}
+                        </p>
+                        <span>done</span>
+                        <input type="checkbox" id="done{{product.id}}" name="done" {% if product.done %}checked{% endif %} value="{{ product.id }}" >
+                        <div class="detail-list-mask"></div>
+                    </label>
+                </div>
+            </li>
+            {% endif %} {% endfor %}
+        </ol>
+        <button type="submit">Done</button>
+    </form>
+</article>
+{% endblock %}

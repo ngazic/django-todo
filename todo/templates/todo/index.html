@@ -1,0 +1,14 @@
+{% extends 'todo/base/base.html' %} {% load static %} {% block title %} All todos {% endblock %} {% block site_css %}
+<link rel="stylesheet" href="{%static 'todo/styles/all-todos.css' %}"> {% endblock %} {% block body %}
+<section>
+    <hr /> {% if all_todos %}
+    <ol>
+        {% for todo in all_todos %}
+        <li class="todo-item"><a class="btn" href="{% url 'todo:detail' todo.id %}">{{ todo.name }}</a></li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+</section>
+{% endblock %}

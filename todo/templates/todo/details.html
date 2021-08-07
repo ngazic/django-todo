@@ -1,0 +1,24 @@
+{% extends 'todo/base/base.html' %} {% load static %} {% block title %} Details {% endblock %} {% block site_css %}
+<link rel="stylesheet" href="{%static 'todo/styles/todo-details.css' %}"> {% endblock %} {% block body %}
+<article>
+    <h3>{{ todo.name }}</h1>
+        <hr>
+        <a href="{%  url 'todo:active_list' todo.id %}">Continue shopping</a>
+        <ol class="details-list">
+            {% for product in todo.product_set.all %}
+            <li class="details-list-item">
+                <div>
+                    <h5>
+                        {{ forloop.counter }}.{{ product.title }} ID: {{ product.id }}
+                    </h5>
+                    <p>
+                        {{ product.quantity }} x {{ product.price }} = {{ product.total_cost }}
+                    </p>
+                    <label for="done{{product.id}}">Done</label>
+                    <input type="checkbox" id="done{{product.id}}" name="done" {% if product.done %}checked{% endif %} disabled>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+</article>
+{% endblock %}
