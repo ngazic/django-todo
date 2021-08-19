@@ -38,6 +38,8 @@ python manage.py test [app_name] ### run test for only one app
 ### OTHER COMMANDS FOR SETTING UP 
 pipenv --venv ### path to virtual environment. We need this to set up VS code to use virtual environment by default, not to set it up every time
 # append \bin\python to this path
+pip freeze ###  see all dependencies
+pip freeze > requirements.txt ### save all dependencies to requirements.txt file for installation on server
 ```
 
 
