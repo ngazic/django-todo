@@ -5,14 +5,14 @@
 ```
 pip install pipenv ### installing pipenv
 python3 -m venv /path/to/new/virtual/environment ### installing in specific location
-source /path/to/new/virtual/environment ### activate specific virtual env for the project
+source /path/to/new/virtual/environment/venv ### activate specific virtual env for the project
 
 ## navigate to the project folder for which you want to create virtual environment
 ## this is where we can have multiple django projects with the same python version, django version ....
 
 ### CREATING PROJECT, APPLICATION AND RUNNING SERVER:
 
-pipenv install django ## install django framework for this workdspace
+pipenv install django ## install django framework for this workdspace or after activate specific venv $ pip isntall django
 pipenv shell ### launch the subshell in virtual environment (without using global, but project specific environment)
 django-admin ### utility tool for django 
 django-admin startproject projectname . ### create new project
