@@ -4,6 +4,7 @@
 
 ```
 pip install pipenv ### installing pipenv
+python3 -m venv /path/to/new/virtual/environment ### installing in specific location
 
 ## navigate to the project folder for which you want to create virtual environment
 ## this is where we can have multiple django projects with the same python version, django version ....
